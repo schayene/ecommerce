@@ -101,7 +101,6 @@ onMounted((): void => {
     position: relative;
     height: 100%;
     background: #ffffff;
-    border: 1px solid #2d2e32;
 
     &__controls {
       position: absolute;
@@ -126,7 +125,7 @@ onMounted((): void => {
           padding: 0.7rem;
           opacity: 0;
           width: 2.8rem;
-          fill: #7e7e7e;
+          fill: #2d2e32;
         }
 
         &:hover svg {
@@ -189,6 +188,12 @@ onMounted((): void => {
         }
       }
     }
+  }
+}
+
+@media (max-width: 800px) {
+  .product__carousel {
+    width: 100%;
   }
 }
 </style>
