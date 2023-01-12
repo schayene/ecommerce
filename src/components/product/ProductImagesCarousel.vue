@@ -60,8 +60,17 @@ const carousel = ref(
 const index = ref<number>(0);
 const carouselWidth = ref<number>(0);
 const marginLeftCarousel = ref<number>(0);
+const interval = ref<number>(0);
+const timerCarousel = ref<number>(7000);
+
+const infiniteCarousel = (): void => {
+  interval.value = setInterval(() => {
+    changeSlide(index.value + 1, "next");
+  }, timerCarousel.value);
+};
 
 const changeSlide = (key: number, action?: string): void => {
+  clearInterval(interval.value);
   if (action === "next" || key > index.value) {
     if (key >= props.images.length) {
       marginLeftCarousel.value = 0;
@@ -76,6 +85,7 @@ const changeSlide = (key: number, action?: string): void => {
     marginLeftCarousel.value += (index.value - key) * carouselWidth.value;
   }
   index.value = key;
+  infiniteCarousel();
 };
 
 const resizeCarousel = (): void => {
