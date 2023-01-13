@@ -1,8 +1,8 @@
 <template>
   <div
     class="product__carousel"
-    @mouseenter="clearIntervalCarousel"
-    @mouseout="infiniteCarousel"
+    @mouseover="clearIntervalCarousel"
+    @mouseleave="infiniteCarousel"
   >
     <div class="carousel" id="product-carousel">
       <div v-if="props.images.length > 1" class="carousel__controls">
